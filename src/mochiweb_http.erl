@@ -63,9 +63,6 @@ request(Socket, Body) ->
         {tcp_closed, _} ->
             mochiweb_socket:close(Socket),
             exit(normal);
-        {ssl_closed, _} ->
-            mochiweb_socket:close(Socket),
-            exit(normal);
         _Other ->
             handle_invalid_request(Socket)
     after ?REQUEST_RECV_TIMEOUT ->
